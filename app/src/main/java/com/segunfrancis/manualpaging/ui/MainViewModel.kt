@@ -6,11 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.segunfrancis.manualpaging.data.repository.IManualPagingRepository
 import com.segunfrancis.manualpaging.ui.model.UiResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import javax.inject.Inject
 
-class MainViewModel(private val repository: IManualPagingRepository) : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val repository: IManualPagingRepository) : ViewModel() {
 
     private val _uiState = MutableLiveData<MainUiState>()
     val uiState: LiveData<MainUiState> = _uiState

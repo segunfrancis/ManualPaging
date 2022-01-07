@@ -8,8 +8,9 @@ import io.ktor.client.request.parameter
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class ManualPagingRepository(
+class ManualPagingRepository @Inject constructor(
     private val client: HttpClient,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : IManualPagingRepository {

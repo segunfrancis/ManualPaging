@@ -2,6 +2,8 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "org.jetbrains.kotlin.plugin.serialization" version "1.6.10"
+    id "kotlin-kapt"
+    id "dagger.hilt.android.plugin"
 }
 
 def getApiKey() {
@@ -55,7 +57,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     implementation "androidx.activity:activity-ktx:1.4.0"
     implementation "com.jakewharton.timber:timber:5.0.1"
-    def ktor_version = "1.6.7"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
     implementation "io.ktor:ktor-client-core:$ktor_version"
     implementation "io.ktor:ktor-client-android:$ktor_version"
     implementation "io.ktor:ktor-client-logging:$ktor_version"

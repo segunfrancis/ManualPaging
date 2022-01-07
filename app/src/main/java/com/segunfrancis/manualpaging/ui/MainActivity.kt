@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.segunfrancis.manualpaging.databinding.ActivityMainBinding
-import com.segunfrancis.manualpaging.di.AppModule.Api.mainViewModelFactory
 import com.segunfrancis.manualpaging.ui.model.UiResponse
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels { mainViewModelFactory }
+    private val viewModel: MainViewModel by viewModels()
     private val movieAdapter: MainAdapter by lazy { MainAdapter() }
     private var recyclerViewState: Parcelable? = null
     private var scrollPosition = 0
